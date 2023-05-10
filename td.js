@@ -85,7 +85,7 @@ var td_config = td_config || {};
             // 點擊事件
             case 'click': {
               document.querySelectorAll(item.selector).forEach(function(el) {
-                if(!el.td_event_binded) {
+                if(!el.td_event_click_binded) {
                   el.addEventListener('click', function(e) {
                     try {
                       dataLayer.push({
@@ -101,7 +101,7 @@ var td_config = td_config || {};
                       console.log(e);
                     }
                   });
-                  el.td_event_binded = true;
+                  el.td_event_click_binded = true;
                 }
               });
               break;
@@ -109,7 +109,7 @@ var td_config = td_config || {};
             // 表單事件
             case 'submit': {
               document.querySelectorAll(item.selector).forEach(function(el) {
-                if(!el.td_event_binded) {
+                if(!el.td_event_submit_binded) {
                   el.addEventListener('submit', function(e) {
                     try {
                       dataLayer.push({
@@ -125,7 +125,7 @@ var td_config = td_config || {};
                       console.log(e);
                     }
                   });
-                  el.td_event_binded = true;
+                  el.td_event_submit_binded = true;
                 }
               });
               break;
@@ -133,7 +133,7 @@ var td_config = td_config || {};
             // 元素可見度事件
             case 'visibility': {
               document.querySelectorAll(item.selector).forEach(function(el) {
-                if(!el.td_event_binded) {
+                if(!el.td_event_visibility_binded) {
                   try {
                     new IntersectionObserver(function(entries) {
                       var ratio = entries[0].intersectionRatio;
@@ -152,7 +152,7 @@ var td_config = td_config || {};
                   } catch(e) {
                     console.log(e);
                   }
-                  el.td_event_binded = true;
+                  el.td_event_visibility_binded = true;
                 }
               });
               break;
